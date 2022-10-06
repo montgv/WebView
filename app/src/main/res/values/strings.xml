@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WebView</string>
+    <string name="textoUrl">Introduce la URL</string>
+    <string name="direccion">IR A LA DIRECCIÓN</string>
+</resources>
