@@ -12,7 +12,7 @@ import com.example.webview.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityMainBinding binding;
-    private EditText editTextUrl;
+    private String editTextUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +21,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(binding.getRoot());
 
         binding.btDireccion.setOnClickListener(this);
+
+        editTextUrl = binding.txtUrl.getText().toString();
     }
 
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(this, WebViewActivity.class);
-        intent.putExtra("url", editTextUrl.getText().toString());
+        intent.putExtra("url", editTextUrl);
         startActivity(intent);
     }
 }

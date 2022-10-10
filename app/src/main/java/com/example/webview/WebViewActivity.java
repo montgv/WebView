@@ -11,7 +11,6 @@ import com.example.webview.databinding.ActivityWebViewBinding;
 public class WebViewActivity extends AppCompatActivity {
 
     private ActivityWebViewBinding binding;
-    private WebView miWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +18,12 @@ public class WebViewActivity extends AppCompatActivity {
         binding = ActivityWebViewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String url = getIntent().getStringExtra("url");
+        Bundle bundle = getIntent().getExtras();
+        String url = bundle.getString("url");
+        System.out.println(url);
 
-        miWebView.setWebViewClient(new WebViewClient());
-        miWebView.loadUrl("http://" + url);
+
+        binding.webView.setWebViewClient(new WebViewClient());
+        binding.webView.loadUrl("https://" + url);
     }
 }
